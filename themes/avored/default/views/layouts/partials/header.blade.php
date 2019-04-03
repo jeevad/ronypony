@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <span style="font-size: 32px; font-weight: 500; margin-top: 10px;">
-                        <img src="{{ asset('vendor/avored-default/images/logo.svg') }}" alt="logo" class="logo">AvoRed Store
+                        <img src="{{ asset('vendor/avored-default/images/logo.svg') }}" alt="logo" class="logo">{{config('app.name')}} Store
                     </span>
                 </a>
             </div>
