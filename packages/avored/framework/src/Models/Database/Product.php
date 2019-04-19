@@ -161,7 +161,7 @@ class Product extends BaseModel
      */
     public function saveProduct($data)
     {
-        Event::fire(new ProductBeforeSave($data));
+        event(new ProductBeforeSave($data));
 
         $this->update($data);
         $this->saveProductImages($data);
@@ -171,7 +171,7 @@ class Product extends BaseModel
         $this->saveProductAttributes($data);
         $this->saveProductDownloadable($data);
 
-        Event::fire(new ProductAfterSave($this, $data));
+        event(new ProductAfterSave($this, $data));
 
         return $this;
     }
