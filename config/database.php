@@ -15,6 +15,8 @@ return [
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
+    'db_table_prefix' => env('DB_TABLE_PREFIX', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -50,7 +52,7 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => env('DB_PREFIX'),
+            'prefix' => env('DB_TABLE_PREFIX', ''),
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
