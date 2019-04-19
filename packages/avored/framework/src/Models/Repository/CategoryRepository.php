@@ -2,19 +2,19 @@
 
 namespace AvoRed\Framework\Models\Repository;
 
-use AvoRed\Framework\Models\Database\Category;
-use AvoRed\Framework\Models\Contracts\CategoryInterface;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
+use AvoRed\Framework\Models\Database\Product;
+use AvoRed\Framework\Models\Database\Category;
+use AvoRed\Framework\Models\Database\Language;
 use AvoRed\Framework\Models\Database\Property;
 use AvoRed\Framework\Models\Database\Attribute;
-use AvoRed\Framework\Models\Database\Product;
 use Illuminate\Pagination\LengthAwarePaginator;
+use AvoRed\Framework\Models\Contracts\CategoryInterface;
 use AvoRed\Framework\Models\Database\CategoryTranslation;
-use Illuminate\Support\Facades\Session;
-use AvoRed\Framework\Models\Database\Language;
-use Illuminate\Support\Arr;
 
 class CategoryRepository implements CategoryInterface
 {
@@ -141,7 +141,7 @@ class CategoryRepository implements CategoryInterface
     */
     public function getCategoryProductWithFilter($categoryId, $filters = [])
     {
-        $prefix = env('DB_TABLE_PREFIX', 'avored_');
+        $prefix = config('database.db_table_prefix');
 
         $propetryInnerJoinFlag = false;
         $attributeInnerJoinFlag = false;
